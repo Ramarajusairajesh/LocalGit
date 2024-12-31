@@ -137,10 +137,10 @@ public:
 
 private:
   EVP_PKEY
-      *pkey; // OpenSSL EVP_PKEY structure (holds both public and private keys)
+  *pkey; // OpenSSL EVP_PKEY structure (holds both public and private keys)
 };
 
-int main() {
+int keys() {
   // Create RSA objects for User 1 and User 2
   RSAEncryption user1(1024);
   RSAEncryption user2(1024);

@@ -134,7 +134,7 @@ private:
   unsigned char iv[AES_BLOCK_SIZE]; // AES IV (block size = 16 bytes)
 };
 
-int main() {
+int main_function() {
   // Create AES objects for User 1 and User 2
   AESEncryption user1;
   AESEncryption user2;
