@@ -24,7 +24,12 @@ Redundancy is essential to ensure continuous access to the latest files.
 With LocalGit, collaboration becomes seamless, even in challenging network conditions. By leveraging LAN and P2P fallback mechanisms, it ensures that critical data is always accessible—no matter the situation.
 
 
+
+
+
 **How It Works:**
+
+
 Repository Initialization
 When creating a new repository, LocalGit generates a file named .hash that stores the SHA hash values of all files in the repository. These hash values act as unique identifiers for file versions. The repository is then archived and compressed before being transmitted using socket programming.
 
