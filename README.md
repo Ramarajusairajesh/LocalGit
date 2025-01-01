@@ -23,3 +23,20 @@ Local networks need an efficient way to share code and files.
 Redundancy is essential to ensure continuous access to the latest files.
 With LocalGit, collaboration becomes seamless, even in challenging network conditions. By leveraging LAN and P2P fallback mechanisms, it ensures that critical data is always accessible—no matter the situation.
 
+
+**How It Works:**
+Repository Initialization
+When creating a new repository, LocalGit generates a file named .hash that stores the SHA hash values of all files in the repository. These hash values act as unique identifiers for file versions. The repository is then archived and compressed before being transmitted using socket programming.
+
+Incremental Updates
+For updating an existing repository, LocalGit calculates SHA hashes for the files and compares them against the hashes stored in the .hash file. Only the files with mismatched hashes are uploaded to the server, ensuring efficient and minimal data transfer.
+
+Data Integrity Verification
+Every archive transmitted is named using its hash value. Before decompressing the received archive, LocalGit verifies its integrity by comparing the hash of the archive with its file name.
+
+If the hashes match, the archive is uncompressed, and the data is applied to the repository.
+If the hashes don’t match, LocalGit requests the server to resend the archive, retrying up to 3 times to ensure a valid archive is received. This mechanism guarantees data integrity and prevents corrupted or tampered files from being applied.
+Secure Transmission
+All file transfers are handled through socket programming, ensuring a streamlined and direct communication channel between the client and the server or peers. The system is designed to handle failures gracefully, reverting to peer-to-peer sharing if the central server becomes unavailable.
+
+This ensures that LocalGit is not only efficient but also resilient, with robust mechanisms for incremental updates, data validation, and recovery. It’s a practical solution for localized version control and collaboration that adapts to varying network conditions and infrastructure limitations.
