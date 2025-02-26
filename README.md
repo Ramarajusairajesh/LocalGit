@@ -1,14 +1,13 @@
 # LocalGit
 
-LocalGit is a decentralized, lightweight, and secure file-sharing system built in C++. As an alternative to github I created this project but to run in a LAN , instead of using git
-as it's building blog I written my own file sharing service
+LocalGit is a decentralized, lightweight, and secure file-sharing system built in C++. As an alternative to GitHub, I created this project to run in a LAN. Instead of using Git as its building block, I wrote my own file-sharing service.
 
 ## Features
-- **RSA Key Sharing with OpenSSL**: Uses `libssl` for secure key exchanges for AES!
+- **RSA Key Sharing with OpenSSL**: Uses `libssl` for secure key exchanges for AES.
 - **AES Encryption**: Encrypts shared files with AES for confidentiality.
 - **Asynchronous File Sharing**: Built on `Boost.Asio` for efficient and non-blocking file transfers.
 - **Async Chatting**: Enables real-time communication between multiple users.
-- **Archiving and compression**: Uses libar and gzlib for archiving the folder and compressing the data to a single file to reduce bandwidth and easy transfer 
+- **Archiving and Compression**: Uses `libarchive` and `zlib` for archiving folders and compressing data into a single file to reduce bandwidth usage and enable easy transfer.
 
 ## Dependencies
 - C++14 or later
@@ -26,22 +25,12 @@ make
 ./localgit
 ```
 
-## How it works
-After running the server part it generate two RSA keys, one public and one private ! The public was shared along with the binary and client /users ! clients generate there own key for
-AES 256 encryption to transfer data securely ! This key is shared to server using RSA, at server the key was decrypted for use to use with client!
+## How It Works
+After running the server, it generates two RSA keys: one public and one private. The public key is shared along with the binary to clients/users. Clients generate their own AES-256 encryption key to transfer data securely. This key is shared with the server using RSA encryption, and the server decrypts it for use with the client.
 
-I used boost::asio for creating async file transfering , created 4 threads for the file server to keep up with the request , later for the chat functionality I used the same encryption
-method and ran the chatting server on a single thread !All the access requests and chat are recorded in a local log file same as any other network attached software !
-
+I used `boost::asio` to create an asynchronous file transfer system with four threads handling file server requests. AES-256 encryption is used for secure file sharing between the server and clients. Later, for chat functionality, I implemented the same encryption method and ran the chat server on a single thread. All access requests and chat logs are recorded in a local log file, similar to any other network-attached software.
 
 ## Usage
 - Start the LocalGit server.
 - Connect clients for secure file sharing and chat.
 
-
-
-## Contributing
-Feel free to fork, open issues, and submit pull requests!
-
-## License
-MIT License
