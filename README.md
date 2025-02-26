@@ -25,6 +25,7 @@ cmake ..
 make
 ./localgit
 ```
+
 ##How it works
 After running the server part it generate two RSA keys, one public and one private ! The public was shared along with the binary and client /users ! clients generate there own key for
 AES 256 encryption to transfer data securely ! This key is shared to server using RSA, at server the key was decrypted for use to use with client!
