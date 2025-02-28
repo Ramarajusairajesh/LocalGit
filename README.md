@@ -1,5 +1,5 @@
 # LocalGit
-
+{! Work in progress } !
 LocalGit is a decentralized, lightweight, and secure file-sharing system built in C++. As an alternative to GitHub, I created this project to run in a LAN. Instead of using Git as its building block, I wrote my own file-sharing service.
 
 ## Features
